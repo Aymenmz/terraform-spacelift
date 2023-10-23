@@ -7,3 +7,10 @@ variable "host_os" {
 
 }
 
+variable "aws_region" {
+
+  type        = string
+  description = "AWS Region"
+  
+}
+
