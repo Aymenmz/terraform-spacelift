@@ -76,7 +76,7 @@ resource "aws_security_group" "dev_sg" {
 
 resource "aws_key_pair" "ec2_key_pair" {
   key_name   = "my-ec2-key-pair"
-  public_key = file("my_key_ec2.pub")
+  public_key = file("/mnt/workspace/mtckey.pub")
 }
 
 resource "aws_instance" "dev_ec2" {
