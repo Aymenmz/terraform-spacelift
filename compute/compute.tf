@@ -1,14 +1,14 @@
 
 
 resource "aws_key_pair" "ec2_key_pair" {
-  key_name   = "my-ec2-key-pair"
+  key_name   = var.key_name
   public_key = file("/mnt/workspace/mtckey.pub")
 }
 
 resource "aws_instance" "dev_ec2" {
 
   ami           = data.aws_ami.ubuntu_18.id
-  instance_type = "t2.micro"
+  instance_type = var.instance_type
 
   subnet_id              = var.subnet_id
   vpc_security_group_ids = var.sg_id
@@ -17,7 +17,7 @@ resource "aws_instance" "dev_ec2" {
   user_data = file("${path.module}/userdata.tpl")
 
   tags = {
-    Name = "dev_ec2"
+    Name = "${node_name}-dev-node"
   }
 
   # provisioner "local-exec" {
