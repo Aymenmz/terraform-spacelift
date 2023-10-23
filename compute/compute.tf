@@ -17,7 +17,7 @@ resource "aws_instance" "dev_ec2" {
   user_data = file("${path.module}/userdata.tpl")
 
   tags = {
-    Name = "${node_name}-dev-node"
+    Name = "${var.node_name}-dev-node"
   }
 
   # provisioner "local-exec" {
