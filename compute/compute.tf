@@ -11,7 +11,7 @@ resource "aws_instance" "dev_ec2" {
   instance_type = "t2.micro"
 
   subnet_id              = var.subnet_id
-  vpc_security_group_ids = [var.sg_id]
+  vpc_security_group_ids = var.sg_id
 
   key_name  = aws_key_pair.ec2_key_pair.key_name
   user_data = file("${path.module}/userdata.tpl")
