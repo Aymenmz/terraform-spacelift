@@ -23,6 +23,6 @@ module "maiziz-compute" {
   host_os       = var.host_os
   key_name      = "my_key_ec2_2"
   node_name     = "maiziz"
-  instance_type = "t2.micro"
+  instance_type = "t2.medium"
 
 }
